@@ -8,18 +8,18 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 #def browser_init(context):
-def browser_init(context, scenario_name):
-
-
-    mobile_emulation = {
-        "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
-        "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19",
-        "clientHints": {"platform": "Android", "mobile": True}
-    }
-
-    chrome_options = Options()
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    context.driver = webdriver.Chrome(options = chrome_options)
+# def browser_init(context, scenario_name):
+#
+#
+#     mobile_emulation = {
+#         "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
+#         "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19",
+#         "clientHints": {"platform": "Android", "mobile": True}
+#     }
+#
+#     chrome_options = Options()
+#     chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+#     context.driver = webdriver.Chrome(options = chrome_options)
 
 # def after_scenario(context, scenario):
 #      context.driver.quit()
@@ -50,30 +50,30 @@ def browser_init(context, scenario_name):
     #      "sessionName": scenario_name
     #}
 
-#def browser_init(context, scenario_name):
+def browser_init(context, scenario_name):
 
 
-    # ### BROWSERSTACK CONFIGURATION ###
-    # BROWSERSTACK_USERNAME = "hamzamechou_Wh3pcM"
-    # BROWSERSTACK_ACCESS_KEY = "JmHL7q59zCXfpGqTJmky"
-    # url = f'https://{BROWSERSTACK_USERNAME}:{BROWSERSTACK_ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #
-    #     "deviceName": "Samsung Galaxy S25 Ultra",
-    #     "realMobile": "true",
-    #     "osVersion": "15.0",
-    #     "browserName": "chrome",
-    #     "deviceOrientation": "portrait",
-    #     "buildName": "bstack-Internship",
-    #     "projectName": "BrowserStack product sale status",
-    #     "sessionName": scenario_name,
-    #
-    # }
-    #
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    ### BROWSERSTACK CONFIGURATION ###
+    BROWSERSTACK_USERNAME = "hamzamechou_Wh3pcM"
+    BROWSERSTACK_ACCESS_KEY = "JmHL7q59zCXfpGqTJmky"
+    url = f'https://{BROWSERSTACK_USERNAME}:{BROWSERSTACK_ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+
+        "deviceName": "Samsung Galaxy S25 Ultra",
+        "realMobile": "true",
+        "osVersion": "15.0",
+        "browserName": "chrome",
+        "deviceOrientation": "portrait",
+        "buildName": "bstack-Internship",
+        "projectName": "BrowserStack product sale status",
+        "sessionName": scenario_name,
+
+    }
+
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     ##HEADLESS CONFIGURATION ###
     # options = webdriver.ChromeOptions()
